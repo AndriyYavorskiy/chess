@@ -1,0 +1,13 @@
+<p>Turn of {{turn === 'w' ? 'white' : 'black'}} player.</p>
+<p>Selected figure: {{ selectedFigure }}</p>
+<p>Selected cell: {{ selectedCell?.id }}</p>
+<p>Message: {{ message }}</p>
+
+<div class="board" appHeightAsWidth>
+    <div 
+        [class]="cell.basicClasses + playMap[cell.id]"
+        [class.focus]="selectedCell?.id === cell.id"
+        [class.marked]="marked.includes(cell.id)"
+        [id]="cell.id" *ngFor="let cell of cells"
+        (click)="handleCellClick(cell)"></div>
+</div>
